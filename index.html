@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiosco Quilicura 2025 - Tu kiosco moderno, cercano y conectado</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card, .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover, .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-tab {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category-tab.active {
+            background-color: #f97316;
+            color: white;
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header / Hero Section -->
+    <header class="hero-section text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Kiosco Quilicura 2025</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Tu kiosco moderno, cercano y conectado con la comunidad</p>
+            <a href="#catalogo" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg inline-block transition duration-300">
+                Explora nuestro catálogo
+            </a>
+        </div>
+    </header>
+
+    <!-- Sección Quiénes Somos -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="https://images.unsplash.com/photo-1578916045372-27bdfb459bf1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kiosco moderno" class="rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Quiénes Somos</h2>
+                    <p class="text-gray-600 mb-4">
+                        Kiosco Quilicura 2025 nace como respuesta a las necesidades cambiantes de nuestra comunidad. 
+                        Somos más que un simple kiosco: somos un punto de encuentro, un centro de servicios y un referente 
+                        de innovación en el comercio local.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Nuestro enfoque innovador nos permite ofrecer servicios como punto de retiro de e-commerce, 
+                        venta de café de grano de calidad y aceptación de pagos digitales, siempre manteniendo nuestro 
+                        compromiso con la comunidad local y la atención personalizada que nos caracteriza.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-shipping-fast text-orange-500 mr-2"></i>
+                            <span class="text-gray-700">Punto de retiro e-commerce</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-coffee text-orange-500 mr-2"></i>
+                            <span class="text-gray-700">Café de grano premium</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-mobile-alt text-orange-500 mr-2"></i>
+                            <span class="text-gray-700">Pagos digitales</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Productos -->
+    <section id="catalogo" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Nuestro Catálogo</h2>
+            
+            <!-- Buscador -->
+            <div class="max-w-md mx-auto mb-10">
+                <div class="relative">
+                    <input type="text" id="search-products" placeholder="Buscar productos..." class="w-full py-3 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                    <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+            
+            <!-- Categorías -->
+            <div class="flex flex-wrap justify-center mb-10 gap-2">
+                <button class="category-tab active px-4 py-2 bg-orange-500 text-white rounded-lg" data-category="todos">Todos</button>
+                <button class="category-tab px-4 py-2 bg-gray-200 text-gray-700 rounded-lg" data-category="snacks">Snacks y Bebidas</button>
+                <button class="category-tab px-4 py-2 bg-gray-200 text-gray-700 rounded-lg" data-category="cafe">Café y Especiales</button>
+                <button class="category-tab px-4 py-2 bg-gray-200 text-gray-700 rounded-lg" data-category="conveniencia">Artículos de Conveniencia</button>
+                <button class="category-tab px-4 py-2 bg-gray-200 text-gray-700 rounded-lg" data-category="servicios">Servicios</button>
+            </div>
+            
+            <!-- Productos -->
+            <div id="productos-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Los productos se cargarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Destacados -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Servicios Destacados</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="service-card bg-orange-50 p-6 rounded-lg border border-orange-100">
+                    <div class="w-14 h-14 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-box text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Punto de Retiro E-commerce</h3>
+                    <p class="text-gray-600">Recoge tus compras online de forma segura y conveniente en nuestro kiosco.</p>
+                </div>
+                
+                <div class="service-card bg-orange-50 p-6 rounded-lg border border-orange-100">
+                    <div class="w-14 h-14 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-coffee text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Café de Especialidad</h3>
+                    <p class="text-gray-600">Disfruta de nuestro café de grano premium, seleccionado cuidadosamente para tu deleite.</p>
+                </div>
+                
+                <div class="service-card bg-orange-50 p-6 rounded-lg border border-orange-100">
+                    <div class="w-14 h-14 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+                        <i class="fab fa-whatsapp text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Atención por WhatsApp</h3>
+                    <p class="text-gray-600">Realiza tus pedidos y consultas directamente por WhatsApp Business.</p>
+                </div>
+                
+                <div class="service-card bg-orange-50 p-6 rounded-lg border border-orange-100">
+                    <div class="w-14 h-14 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-credit-card text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Pagos Digitales</h3>
+                    <p class="text-gray-600">Aceptamos múltiples formas de pago digital sin contacto para tu comodidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por Qué Elegirnos -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">¿Por Qué Elegirnos?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-users text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Cercanía y Atención Humana</h3>
+                    </div>
+                    <p class="text-gray-600">Conocemos a nuestros clientes por su nombre y estamos siempre dispuestos a ayudarte con una sonrisa.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-boxes text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Variedad de Productos Esenciales</h3>
+                    </div>
+                    <p class="text-gray-600">Ofrecemos una amplia gama de productos de calidad para satisfacer tus necesidades diarias.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-laptop-code text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Integración Tecnológica</h3>
+                    </div>
+                    <p class="text-gray-600">Combinamos lo mejor de la atención tradicional con las ventajas de la tecnología moderna.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-handshake text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Participación Comunitaria</h3>
+                    </div>
+                    <p class="text-gray-600">Somos más que un negocio: somos un punto de encuentro para la comunidad de Quilicura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Lo Que Dicen Nuestros Clientes</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-semibold">M</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">María González</h4>
+                            <div class="flex text-orange-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"El mejor café del barrio y siempre tienen lo que necesito. Me encanta que puedo recoger mis compras online aquí."</p>
+                </div>
+                
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-semibold">C</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Carlos López</h4>
+                            <div class="flex text-orange-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"La atención por WhatsApp es un gran acierto. Pido todo desde mi casa y lo paso a buscar sin problemas. ¡Muy práctico!"</p>
+                </div>
+                
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-semibold">A</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Ana Silva</h4>
+                            <div class="flex text-orange-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Me encanta que acepten pagos digitales. Ya no tengo que andar con efectivo y la atención siempre es excelente."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación y Contacto -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Ubicación y Contacto</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Información de Contacto</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-orange-500 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-medium text-gray-800">Dirección</p>
+                                    <p class="text-gray-600">Av. Principal #1234, Quilicura, Región Metropolitana</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-orange-500 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-medium text-gray-800">Teléfono</p>
+                                    <p class="text-gray-600">+56 9 1234 5678</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fab fa-whatsapp text-orange-500 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-medium text-gray-800">WhatsApp</p>
+                                    <p class="text-gray-600">+56 9 8765 4321</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-orange-500 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-medium text-gray-800">Email</p>
+                                    <p class="text-gray-600">contacto@kioscoquilicura2025.cl</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-orange-500 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-medium text-gray-800">Horarios</p>
+                                    <p class="text-gray-600">Lunes a Viernes: 8:00 - 22:00 hrs</p>
+                                    <p class="text-gray-600">Sábados y Domingos: 9:00 - 21:00 hrs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Botón de WhatsApp -->
+                    <a href="https://wa.me/56987654321?text=Hola,%20me%20interesa%20realizar%20un%20pedido" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg inline-flex items-center transition duration-300 mb-4 w-full justify-center">
+                        <i class="fab fa-whatsapp mr-2 text-xl"></i>
+                        Realiza tu pedido por WhatsApp
+                    </a>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-white p-4 rounded-lg shadow-sm h-full">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Nuestra Ubicación</h3>
+                        <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
+                            <!-- Mapa placeholder - en un caso real, aquí iría un iframe de Google Maps -->
+                            <div class="text-center">
+                                <i class="fas fa-map-marked-alt text-4xl text-orange-500 mb-2"></i>
+                                <p class="text-gray-600">Mapa de Quilicura</p>
+                                <p class="text-gray-500 text-sm">Ubicación: Av. Principal #1234</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">Kiosco Quilicura 2025</h3>
+                    <p class="text-gray-400">Tu punto de encuentro local</p>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">© 2025 Kiosco Quilicura 2025. Todos los derechos reservados.</p>
+                    <p class="text-gray-400 mt-1">Desarrollado con ❤️ para la comunidad de Quilicura</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Datos de productos
+        const productos = [
+            {
+                id: 1,
+                nombre: "Papas Fritas Lays",
+                categoria: "snacks",
+                descripcion: "Bolsa individual de papas fritas Lays sabor natural",
+                precio: "$1.200",
+                imagen: "https://images.unsplash.com/photo-1566474982192-8bee0788c38a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                destacado: false
+            },
+            {
+                id: 2,
+                nombre: "Café de Grano Premium",
+                categoria: "cafe",
+                descripcion: "Café de grano 100% arábica, tostado artesanalmente",
+                precio: "$4.500",
+                imagen: "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                destacado: true
+            },
+            {
+                id: 3,
+                nombre: "Bebida Energética Monster",
+                categoria: "snacks",
+                descripcion: "Bebida energética Monster, lata 500ml",
+                precio: "$1.800",
+                imagen: "https://images.unsplash.com/photo-1625772299848-391b6a87d5b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                destacado: false
+            },
+            {
+                id: 4,
+                nombre: "Galletas Artesanales",
+                categoria: "cafe",
+                descripcion: "Galletas caseras con chispas de chocolate",
+                precio: "$2.500",
+                imagen: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                destacado: true
+            },
+            {
+                id: 5,
+                nombre: "Pilas AA",
+                categoria: "conveniencia",
+                descripcion: "Pack de 4 pilas AA alcalinas",
+                precio: "$3.000",
+                imagen: "https://images.unsplash.com/photo-1605804434530-2c85c6b5e4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                destacado: false
+            },
+            {
+                id: 6,
+                nombre: "Cargador USB",
+                categoria: "conveniencia",
+                descripcion: "Cargador USB rápido para celular",
+                precio: "$5.000",
+                imagen: "https://images.unsplash.com/photo-1594736797933-d0ea3ff8db41?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                destacado: false
+            },
+            {
+                id: 7,
+                nombre: "Retiro de Paquetes E-commerce",
+                categoria: "servicios",
+                descripcion: "Servicio de punto de retiro para compras online",
+                precio: "$1.000",
+                imagen: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                destacado: true
+            },
+            {
+                id: 8,
+                nombre: "Pago de Cuentas",
+                categoria: "servicios",
+                descripcion: "Pago de servicios básicos y cuentas varias",
+                precio: "$500",
+                imagen: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                destacado: false
+            },
+            {
+                id: 9,
+                nombre: "Jugo Natural Naranja",
+                categoria: "snacks",
+                descripcion: "Jugo natural de naranja recién exprimido",
+                precio: "$1.500",
+                imagen: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                destacado: true
+            }
+        ];
+
+        // Función para renderizar productos
+        function renderProductos(categoria = 'todos', busqueda = '') {
+            const container = document.getElementById('productos-container');
+            container.innerHTML = '';
+            
+            let productosFiltrados = productos;
+            
+            // Filtrar por categoría
+            if (categoria !== 'todos') {
+                productosFiltrados = productos.filter(producto => producto.categoria === categoria);
+            }
+            
+            // Filtrar por búsqueda
+            if (busqueda) {
+                const busquedaLower = busqueda.toLowerCase();
+                productosFiltrados = productosFiltrados.filter(producto => 
+                    producto.nombre.toLowerCase().includes(busquedaLower) || 
+                    producto.descripcion.toLowerCase().includes(busquedaLower)
+                );
+            }
+            
+            // Mostrar productos
+            productosFiltrados.forEach(producto => {
+                const destacadoClass = producto.destacado ? 'border-2 border-orange-300' : '';
+                
+                const productoHTML = `
+                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm ${destacadoClass}">
+                        <div class="h-48 overflow-hidden">
+                            <img src="${producto.imagen}" alt="${producto.nombre}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-semibold text-gray-800">${producto.nombre}</h3>
+                                ${producto.destacado ? '<span class="bg-orange-500 text-white text-xs px-2 py-1 rounded">Destacado</span>' : ''}
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">${producto.descripcion}</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-orange-500 font-bold">${producto.precio}</span>
+                                <button class="bg-orange-500 hover:bg-orange-600 text-white py-1 px-3 rounded text-sm transition duration-300">
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                container.innerHTML += productoHTML;
+            });
+            
+            // Si no hay productos que coincidan
+            if (productosFiltrados.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-10">
+                        <i class="fas fa-search text-4xl text-gray-400 mb-4"></i>
+                        <p class="text-gray-500">No se encontraron productos que coincidan con tu búsqueda.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Inicializar productos al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProductos();
+            
+            // Manejar clics en categorías
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remover clase activa de todos los tabs
+                    document.querySelectorAll('.category-tab').forEach(t => {
+                        t.classList.remove('active', 'bg-orange-500', 'text-white');
+                        t.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                    
+                    // Agregar clase activa al tab clickeado
+                    this.classList.remove('bg-gray-200', 'text-gray-700');
+                    this.classList.add('active', 'bg-orange-500', 'text-white');
+                    
+                    // Filtrar productos
+                    const categoria = this.getAttribute('data-category');
+                    renderProductos(categoria);
+                });
+            });
+            
+            // Manejar búsqueda
+            document.getElementById('search-products').addEventListener('input', function() {
+                const categoriaActiva = document.querySelector('.category-tab.active').getAttribute('data-category');
+                renderProductos(categoriaActiva, this.value);
+            });
+        });
+    </script>
+</body>
+</html>
